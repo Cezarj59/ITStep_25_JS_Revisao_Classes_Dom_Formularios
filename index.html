@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 25</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">All Veiculos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul id="lista" class="navbar-nav esconder">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Visualizar
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./index.html#canvas1" style="color: red;">Carro</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./index.html#canvas2" style="color: green;">Moto</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./index.html#canvas3" style="color: gray;">Barcos</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <button id="btnExibirCadastros" class="btn btn-outline-primary my-2 my-sm-0" type="button"
+                        onclick="escondeForm()">Exibir
+                        Cadastros</button>
+
+                    <button id="btnVoltar" class="btn btn-outline-danger my-2 my-sm-0 esconder" type="button"
+                        onclick="mostraForm()">Voltar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-lg">
+        <form id="form" class="form-horizontal">
+            <fieldset>
+                <hr>
+                <legend>Cadastro de veiculos.</legend>
+
+                <!-- Select Multiple -->
+                <div class="row">
+                    <label class="col-md-4 control-label" for="selectmultiple">Tipo:</label>
+                    <div class="col-md-4">
+                        <select id="select" name="select" class="form-control" onchange="alternar(), placeHolder()">
+                            <option class="optionAt" value="cr">Carros</option>
+                            <option class="optionFn" value="mt">Motos</option>
+                            <option class="optionVl" value="bc">Barcos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="row">
+                    <label class="col-md-4 control-label" for="inputModelo">Modelo:</label>
+                    <div class="col-md-4">
+                        <input id="inputModelo" name="inputModelo" type="text" placeholder="Opala"
+                            class="form-control input-md">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="row">
+                    <label class="col-md-4 control-label" for="inputCor">Cor</label>
+                    <div class="col-md-4">
+                        <input id="inputCor" name="inputCor" type="text" placeholder="Preto"
+                            class="form-control input-md">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="row">
+                    <label class="col-md-4 control-label" for="inputFabricante">Fabricante:</label>
+                    <div class="col-md-2">
+                        <input id="inputFabricante" name="inputFabricante" type="text" placeholder="Chevrolet"
+                            class="form-control input-md">
+
+                    </div>
+                </div>
+
+                <div  id="cilindradas" class="row esconder">
+                    <label class="col-md-4 control-label" for="inputCilindradas">Cilindradas:</label>
+                    <div class="col-md-2">
+                        <input id="inputCilindradas" name="inputCilindradas" type="text" placeholder="125cc"
+                            class="form-control input-md">
+
+                    </div>
+                </div>
+                <div id="pes" class="row esconder">
+                    <label class="col-md-4 control-label " for="inputPes">Pés:</label>
+                    <div class="col-md-2">
+                        <input id="inputPes" name="inputPes" type="number "
+                            class="form-control input-md" placeholder="70">
+
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="row">
+                    <label class="col-sm-7 control-label" for="cadastro"></label>
+                    <div class="col-md-4">
+                        <button type="button" id="cadastro" name="cadastro" class="btn btn-success"
+                            onclick="cadastrar()">Cadastrar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+
+        <div id="canvas">
+            <div id="divCarros" class="esconder">
+                <h2>Carros</h2>
+                <div id="canvas1"></div>
+            </div>
+            <div id="divMotos" class="esconder">
+                <h2>Motos</h2>
+                <div id="canvas2"></div>
+            </div>
+            <div id="divBarcos" class="esconder">
+                <h2>Barcos</h2>
+                <div id="canvas3"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start fixed-bottom">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

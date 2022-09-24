@@ -1,0 +1,110 @@
+.esconder {
+    display: none;
+}
+
+.gradiente {
+    background: #C9D6FF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 1rem;
+}
+
+
+
+/* ----------------- */
+@media (max-width: 768px) {
+    .row label {
+        text-align: left;
+    }
+}
+
+/* ----------------- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+legend {
+    text-align: center;
+}
+
+.row {
+    margin-top: 1rem;
+}
+
+.row label {
+    text-align: right;
+    font-weight: bolder;
+}
+
+#canvas div {
+    margin: 2rem auto;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+}
+
+#divVoluntarios {
+    margin-bottom: 200px;
+}
+
+#canvas1,
+#canvas2,
+#canvas3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    padding: 1rem;
+    font-weight: 600;
+    width: 400px;
+}
+
+#canvas1 .card {
+    background-color: red;
+    color: white;
+}
+
+#canvas2 .card {
+    background-color: green;
+    color: white;
+}
+
+#canvas3 .card {
+    background-color: gray;
+    color: white;
+}
+
+#select {
+    color: blue;
+}
+
+.optionAt {
+    color: red;
+}
+
+.optionFn {
+    color: green;
+}
+
+.optionVl {
+    color: gray;
+}
